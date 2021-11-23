@@ -6,7 +6,7 @@
 
     <groupId>com.github.merunno</groupId>
     <artifactId>AziAfnwLobby</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>AziAfnwLobby</name>
