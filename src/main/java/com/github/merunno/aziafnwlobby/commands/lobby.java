@@ -20,6 +20,10 @@ public class lobby implements CommandExecutor {
             World lobby = Bukkit.getServer().getWorld("lobby");
             Location point = Objects.requireNonNull(lobby).getSpawnLocation();
             player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] ロビーへ移動します.....");
+            if(Objects.requireNonNull(player.getPlayer()).getWorld() == lobby) {
+                player.sendMessage(ChatColor.RED + "[AziAfnwLobby] 既にロビーに接続しています。");
+                return true;
+            }
             player.teleport(point);
         }
         return true;
