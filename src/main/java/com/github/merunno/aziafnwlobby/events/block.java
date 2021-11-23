@@ -32,14 +32,13 @@ public class block implements Listener {
     }
 
     @EventHandler
-    public void onBucket(PlayerBucketEmptyEvent bucketEmptyEvent) {
+    public void onBucket(PlayerBucketEmptyEvent BucketEmptyEvent) {
         World lobby = Bukkit.getWorld("lobby");
-        Player player = bucketEmptyEvent.getPlayer();
-        if(bucketEmptyEvent.getPlayer().getWorld() == lobby) {
+        Player player = BucketEmptyEvent.getPlayer();
+        if(BucketEmptyEvent.getPlayer().getWorld() == lobby) {
             if (player.hasPermission("afnw.op.commands")) return;
-            bucketEmptyEvent.setCancelled(true);
+            BucketEmptyEvent.setCancelled(true);
         }
     }
-
 
 }
