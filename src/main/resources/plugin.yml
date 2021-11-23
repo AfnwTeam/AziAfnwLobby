@@ -1,0 +1,13 @@
+name: AziAfnwLobby
+version: '${project.version}'
+main: com.github.merunno.aziafnwlobby.AziAfnwLobby
+api-version: 1.17
+prefix: AfnwLobby
+load: STARTUP
+softdepend: [ AfnwCore ]
+authors: [ merunno ]
+description: Manage the lobby
+
+commands:
+  lobby:
+    description: ロビーに戻ります。

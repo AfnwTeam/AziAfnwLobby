@@ -1,0 +1,3 @@
+# AziAfnwLobby
+
+Afnwのロビープラグイン
