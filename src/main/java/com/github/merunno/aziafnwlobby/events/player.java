@@ -1,6 +1,7 @@
 package com.github.merunno.aziafnwlobby.events;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -18,6 +19,7 @@ public class player implements Listener {
         World lobby = Bukkit.getServer().getWorld("lobby");
         Location point = Objects.requireNonNull(lobby).getSpawnLocation();
         if(player.hasPermission("afnw.op.commands")) return;
+        player.hasPlayedBefore();
         player.teleport(point);
     }
 }
