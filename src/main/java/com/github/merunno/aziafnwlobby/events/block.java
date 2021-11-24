@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.player.PlayerBucketEmptyEvent;
 
 public class block implements Listener {
@@ -38,6 +39,16 @@ public class block implements Listener {
         if(BucketEmptyEvent.getPlayer().getWorld() == lobby) {
             if (player.hasPermission("afnw.op.commands")) return;
             BucketEmptyEvent.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onPick(EntityPickupItemEvent pickupItemEvent) {
+        Player player = (Player) pickupItemEvent.getEntity();
+        World lobby = Bukkit.getServer().getWorld("lobby");
+        if(player.getWorld() == lobby) {
+            if (player.hasPermission("afnw.op.commands")) return;
+            pickupItemEvent.setCancelled(true);
         }
     }
 
