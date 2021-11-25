@@ -2,7 +2,10 @@ package com.github.merunno.aziafnwlobby.events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,6 +14,8 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.player.PlayerBucketEmptyEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class block implements Listener {
 
@@ -47,13 +52,29 @@ public class block implements Listener {
         }
     }
 
+
+    @EventHandler
+    public void onInteract(PlayerInteractEvent interactEvent) {
+        Player player = interactEvent.getPlayer();
+        ItemStack item = interactEvent.getItem();
+        World lobby = Bukkit.getServer().getWorld("lobby");
+        if(interactEvent.getPlayer().getWorld() == lobby) {
+            if (player.hasPermission("afnw.op.commands")) return;
+            if (item != null && !item.getType().isAir()) {
+                interactEvent.setCancelled(true);
+            }
+        }
+    }
+
     @EventHandler
     public void onPick(EntityPickupItemEvent pickupItemEvent) {
-        Player player = (Player) pickupItemEvent.getEntity();
-        World lobby = Bukkit.getServer().getWorld("lobby");
-        if(player.getWorld() == lobby) {
-            if (player.hasPermission("afnw.op.commands")) return;
-            pickupItemEvent.setCancelled(true);
+        Entity player = pickupItemEvent.getEntity();
+        if(player instanceof Player) {
+            World lobby = Bukkit.getServer().getWorld("lobby");
+            if(player.getWorld() == lobby) {
+                if (player.hasPermission("afnw.op.commands")) return;
+                pickupItemEvent.setCancelled(true);
+            }
         }
     }
 
