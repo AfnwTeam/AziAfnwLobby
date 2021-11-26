@@ -26,6 +26,6 @@ public class lobby implements CommandExecutor {
             }
             player.teleport(point);
         }
-        return true;
+        return false;
     }
 }
