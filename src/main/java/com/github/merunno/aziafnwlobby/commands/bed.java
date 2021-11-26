@@ -22,7 +22,7 @@ public class bed implements CommandExecutor {
             if(Objects.requireNonNull(player.getPlayer()).getWorld() == afnw) {
                 Location playerBedLocation = player.getBedSpawnLocation();
                 if(playerBedLocation == null) {
-                    player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ベットにテレポートできません。ベットで寝ていない、もしくはベットの破壊されていてスポーンロケーションを取得できません。");
+                    player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ベットにテレポートできません。ベットで寝ていない、もしくはベットが破壊されていてスポーンロケーションを取得できません。");
                     return true;
                 }
                 player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] ベットロケーションに移動しました。");
