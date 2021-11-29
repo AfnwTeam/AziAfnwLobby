@@ -14,27 +14,21 @@ public class bed implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if(command.getName().equalsIgnoreCase("bed")) {
             Player player = (Player) sender;
-            Location loc = player.getLocation();
             World afnw = Bukkit.getServer().getWorld("world");
-            player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] ベットロケーションへ移動します.....10秒待機が必要です。");
+            player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] ベットロケーションへ移動します");
             if(Objects.requireNonNull(player.getPlayer()).getWorld() == afnw) {
                 Location playerBedLocation = player.getBedSpawnLocation();
                 if(playerBedLocation == null) {
                     player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ベットにテレポートできません。ベットで寝ていない、もしくはベットが破壊されていてスポーンロケーションを取得できません。");
                     return true;
                 }
-                player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] ベットロケーションに移動しました。");
+                player.sendMessage(ChatColor.YELLOW + "[AziAfnwLobby] ベットロケーションに移動しました。");
                 player.teleport(playerBedLocation);
-                particle(loc);
             } else {
-                player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ロケーションに移動できません。AfnwWorld以外のワールドです。");
+                player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ロケーションに移動できません。ここでは利用できません。");
                 return true;
             }
         }
         return false;
-    }
-
-    private void particle(Location loc) {
-        Objects.requireNonNull(loc.getWorld()).playEffect(loc, Effect.ENDER_SIGNAL, 0, 14);
     }
 }
