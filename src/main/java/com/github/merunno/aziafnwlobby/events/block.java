@@ -29,6 +29,7 @@ public class block implements Listener {
             breakEvent.setCancelled(true);
             player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ロビー内ではブロックの破壊はできません。");
         } else if(breakEvent.getPlayer().getWorld() == afk) {
+            if (player.hasPermission("afnw.op.commands")) return;
             breakEvent.setCancelled(true);
         }
     }
@@ -43,6 +44,7 @@ public class block implements Listener {
             placeEvent.setCancelled(true);
             player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ロビー内ではブロックの設置はできません。");
         } else if(placeEvent.getPlayer().getWorld() == afk) {
+            if (player.hasPermission("afnw.op.commands")) return;
             placeEvent.setCancelled(true);
         }
     }
@@ -57,6 +59,7 @@ public class block implements Listener {
             BucketEmptyEvent.setCancelled(true);
             player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ロビー内ではバケツの操作はできません。");
         } else if(BucketEmptyEvent.getPlayer().getWorld() == afk) {
+            if (player.hasPermission("afnw.op.commands")) return;
             BucketEmptyEvent.setCancelled(true);
         }
     }
