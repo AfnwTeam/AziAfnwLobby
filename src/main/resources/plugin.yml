@@ -11,3 +11,7 @@ description: Manage the lobby
 commands:
   lobby:
     description: ロビーに戻ります。
+  bed:
+    description: ベット地点に戻ります。存在しない場合はAfnwの初期ポイントに戻ります。
+  afk:
+    description: AFKに行きます。

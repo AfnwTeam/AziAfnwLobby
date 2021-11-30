@@ -1,9 +1,6 @@
 package com.github.merunno.aziafnwlobby.commands;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,13 +16,14 @@ public class lobby implements CommandExecutor {
             Player player = (Player) sender;
             World lobby = Bukkit.getServer().getWorld("lobby");
             Location point = Objects.requireNonNull(lobby).getSpawnLocation();
-            player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] ロビーへ移動します.....");
-            if(Objects.requireNonNull(player.getPlayer()).getWorld() == lobby) {
+            player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] ロビーへ移動します....");
+            if (Objects.requireNonNull(player.getPlayer()).getWorld() == lobby) {
                 player.sendMessage(ChatColor.RED + "[AziAfnwLobby] 既にロビーに接続しています。");
                 return true;
             }
+            player.sendMessage(ChatColor.YELLOW + "[AziAfnwLobby] ロビーに移動しました。");
             player.teleport(point);
         }
-        return true;
+        return false;
     }
 }

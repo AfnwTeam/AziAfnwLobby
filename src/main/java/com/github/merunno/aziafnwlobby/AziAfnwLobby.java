@@ -14,6 +14,8 @@ public final class AziAfnwLobby extends JavaPlugin {
         getLogger().info("このプラグインはAfnwCoreと依存関係を結んでいます。");
 
         Objects.requireNonNull(getCommand("lobby")).setExecutor(new lobby());
+        Objects.requireNonNull(getCommand("bed")).setExecutor(new bed());
+        Objects.requireNonNull(getCommand("afk")).setExecutor(new afk());
 
         getServer().getPluginManager().registerEvents(new block(), this);
         getServer().getPluginManager().registerEvents(new player(), this);
