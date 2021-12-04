@@ -30,7 +30,7 @@ public class afk implements CommandExecutor {
                     player.sendMessage(ChatColor.YELLOW + "[AziAfnwLobby] AFKに移動しました。");
                     player.teleport(point);
                 }
-            }.runTaskLater(JavaPlugin.getPlugin(AziAfnwLobby.class), 5 * 10);
+            }.runTaskLater(JavaPlugin.getPlugin(AziAfnwLobby.class), 20 * 5);
         }
         return false;
     }
