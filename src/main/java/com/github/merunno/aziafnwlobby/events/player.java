@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+
 import java.util.Objects;
 
 public class player implements Listener {
@@ -20,10 +21,6 @@ public class player implements Listener {
         Location point = Objects.requireNonNull(lobby).getSpawnLocation();
         if(player.hasPermission("afnw.op.commands")) {
             player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] OPのため、前回と同じ地点からスタートになります。");
-        }
-        if(!player.hasPlayedBefore()) {
-            player.teleport(point);
-            return;
         }
         player.teleport(point);
     }
