@@ -20,7 +20,8 @@ public class player implements Listener {
         World lobby = Bukkit.getServer().getWorld("lobby");
         Location point = Objects.requireNonNull(lobby).getSpawnLocation();
         if(player.hasPermission("afnw.op.commands")) {
-            player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] OPのため、前回と同じ地点からスタートになります。");
+            player.sendTitle(ChatColor.AQUA + "オペレーターリスタート", "オペレーターのため、前回と同じ地点からスタートになります。", 3, 60, 1);
+            player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] オペレーターリスタート機能が発動しました。オペレーターのため、前回と同じ地点からスタートになります。");
             return;
         }
         player.teleport(point);
