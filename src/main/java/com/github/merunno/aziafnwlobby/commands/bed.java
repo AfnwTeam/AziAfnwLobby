@@ -34,7 +34,7 @@ public class bed implements CommandExecutor {
                     player.sendMessage(ChatColor.YELLOW + "[AziAfnwLobby] ベットロケーションに移動しました。");
                     player.teleport(playerBedLocation);
                 }
-            }.runTaskLater(JavaPlugin.getPlugin(AziAfnwLobby.class), 7 * 10);
+            }.runTaskLater(JavaPlugin.getPlugin(AziAfnwLobby.class), 20 * 7);
         }
         return false;
     }
