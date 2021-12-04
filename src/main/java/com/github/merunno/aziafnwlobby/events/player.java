@@ -21,6 +21,7 @@ public class player implements Listener {
         Location point = Objects.requireNonNull(lobby).getSpawnLocation();
         if(player.hasPermission("afnw.op.commands")) {
             player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] OPのため、前回と同じ地点からスタートになります。");
+            return;
         }
         player.teleport(point);
     }
