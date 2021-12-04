@@ -23,6 +23,12 @@ public class lobby implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "[AziAfnwLobby] 既にロビーに接続しています。");
                 return true;
             }
+            if(player.hasPermission("afnw.op.commands")) {
+                player.sendTitle(ChatColor.YELLOW + "オペレーターテレポート", "制限を回避してロビーに移動しました。", 3, 60, 1);
+                player.sendMessage(ChatColor.YELLOW + "[AziAfnwLobby] オペレーターテレポートによりワールド制限、5秒の待機時間を回避しました。");
+                player.teleport(point);
+                return true;
+            }
             player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] ロビーへ移動します......5秒待機してください。");
             new BukkitRunnable() {
                 @Override

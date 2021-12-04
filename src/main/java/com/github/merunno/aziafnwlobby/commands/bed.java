@@ -23,6 +23,12 @@ public class bed implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ベットにテレポートできません。ベットで寝ていない、もしくはベットが破壊されていてスポーンロケーションを取得できません。");
                 return true;
             }
+            if(player.hasPermission("afnw.op.commands")) {
+                player.sendTitle(ChatColor.YELLOW + "オペレーターテレポート", "制限を回避してロビーに移動しました。", 3, 60, 1);
+                player.sendMessage(ChatColor.YELLOW + "[AziAfnwLobby] オペレーターテレポートによりワールド設定、5秒の待機時間を回避しました。");
+                player.teleport(playerBedLocation);
+                return true;
+            }
             if(Objects.requireNonNull(player.getPlayer()).getWorld() != afnw) {
                 player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ロケーションに移動できません。ここでは利用できません。");
                 return true;
