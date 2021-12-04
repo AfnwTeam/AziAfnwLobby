@@ -27,7 +27,7 @@ public class bed implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "[AziAfnwLobby] ロケーションに移動できません。ここでは利用できません。");
                 return true;
             }
-            player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] ベットロケーションへ移動します......5秒待機してください。");
+            player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] ベットロケーションへ移動します......7秒待機してください。");
             new BukkitRunnable() {
                 @Override
                 public void run() {
