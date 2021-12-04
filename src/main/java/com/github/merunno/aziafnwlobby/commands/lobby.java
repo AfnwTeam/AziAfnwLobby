@@ -27,6 +27,7 @@ public class lobby implements CommandExecutor {
             new BukkitRunnable() {
                 @Override
                 public void run() {
+                    player.sendTitle(ChatColor.YELLOW + "Screaaaam!!!", "ロビーに移動しました。", 3, 60, 1);
                     player.sendMessage(ChatColor.YELLOW + "[AziAfnwLobby] ロビーに移動しました。");
                     player.teleport(point);
                 }

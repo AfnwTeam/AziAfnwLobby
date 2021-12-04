@@ -23,10 +23,11 @@ public class afk implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "[AziAfnwLobby] 既にAFKに接続しています。");
                 return true;
             }
-            player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] AFKへ移動します.....秒待機してください。");
+            player.sendMessage(ChatColor.AQUA + "[AziAfnwLobby] AFKへ移動します.....5秒待機してください。");
             new BukkitRunnable() {
                 @Override
                 public void run() {
+                    player.sendTitle(ChatColor.YELLOW + "Screaaaam!!!", "AFKに移動しました。", 3, 60, 1);
                     player.sendMessage(ChatColor.YELLOW + "[AziAfnwLobby] AFKに移動しました。");
                     player.teleport(point);
                 }

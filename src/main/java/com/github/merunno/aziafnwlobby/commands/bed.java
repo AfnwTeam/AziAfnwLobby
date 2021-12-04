@@ -31,6 +31,7 @@ public class bed implements CommandExecutor {
             new BukkitRunnable() {
                 @Override
                 public void run() {
+                    player.sendTitle(ChatColor.YELLOW + "Screaaaam!!!", "ベットロケーションに移動しました。", 3, 60, 1);
                     player.sendMessage(ChatColor.YELLOW + "[AziAfnwLobby] ベットロケーションに移動しました。");
                     player.teleport(playerBedLocation);
                 }
