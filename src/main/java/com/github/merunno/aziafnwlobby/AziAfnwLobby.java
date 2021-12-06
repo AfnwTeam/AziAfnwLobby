@@ -19,6 +19,7 @@ public final class AziAfnwLobby extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new block(), this);
         getServer().getPluginManager().registerEvents(new player(), this);
+        getServer().getPluginManager().registerEvents(new entity(), this);
     }
 
 }
