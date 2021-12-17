@@ -37,6 +37,10 @@ public class bed implements CommandExecutor {
             new BukkitRunnable() {
                 @Override
                 public void run() {
+                    if(Objects.requireNonNull(player.getPlayer()).getWorld() != afnw) {
+                        player.sendMessage(ChatColor.RED + "[AziAfnwLobby] 不明なエラーにより、ロケーションの移動に失敗しました。");
+                        return;
+                    }
                     player.sendTitle(ChatColor.YELLOW + "Screaaaam!!!", "ベットロケーションに移動しました。", 3, 60, 1);
                     player.sendMessage(ChatColor.YELLOW + "[AziAfnwLobby] ベットロケーションに移動しました。");
                     player.teleport(playerBedLocation);
